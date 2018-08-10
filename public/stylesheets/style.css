@@ -14,3 +14,14 @@ nav a:hover {
   color: #909eac;
   text-decoration: none;
 }
+
+.navbar a.logo {
+  text-decoration: none;
+  color: #bbc5d1;
+  width: 100%;
+}
+
+.navbar a.logo:hover {
+  color: #bbc5d1;
+}
+
