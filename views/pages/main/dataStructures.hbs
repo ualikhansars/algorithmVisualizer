@@ -7,20 +7,10 @@
     </div>
     {{#if description}}
     <div class="row">
-        <div class="col-md-1">
-           <ul class="nav flex-column">
-                <li class="nav-item">
-                    <a class="nav-link active" href="/dataStructures/queue">Queue</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/dataStructures/stack">Stack</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/dataStructures/linkedList">Linked List</a>
-                </li>
-            </ul>
+        <div class="col-md-2">
+           {{> dsSidebar}}
         </div>
-        <div class="col-md-11">
+        <div class="col-md-10">
             description block
         </div>
     </div>

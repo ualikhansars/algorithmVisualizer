@@ -1,2 +1,18 @@
 {{> nav }}
-<h1>Stack</h1>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <h1>Stack</h1>
+        </div>
+    </div>
+    {{#if description}}
+    <div class="row">
+        <div class="col-md-2">
+           {{> dsSidebar}}
+        </div>
+        <div class="col-md-10">
+            description block
+        </div>
+    </div>
+    {{/if}}
+</div>
