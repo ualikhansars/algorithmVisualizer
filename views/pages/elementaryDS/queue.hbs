@@ -5,13 +5,34 @@
             <h1>Queue</h1>
         </div>
     </div>
-    {{#if description}}
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <a href="/dataStructures/queue?description=true">
+                Description
+            </a>
+            <a href="/dataStructures/queue?visualRepresentation=true">
+                Visual Representation
+            </a>
+        </div>
+    </div>
+    {{#if mode.description}}
     <div class="row">
         <div class="col-md-2">
            {{> dsSidebar}}
         </div>
         <div class="col-md-10">
             description block
+        </div>
+    </div>
+    {{/if}}
+
+    {{#if mode.visualRepresentation}}
+    <div class="row">
+        <div class="col-md-2">
+           {{> dsSidebar}}
+        </div>
+        <div class="col-md-10">
+            visual Representation block
         </div>
     </div>
     {{/if}}

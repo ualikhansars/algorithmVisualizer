@@ -7,16 +7,18 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/queue', function(req, res, next) {
-  res.render('pages/elementaryDS/queue', {});
+  let mode = req.query;
+  res.render('pages/elementaryDS/queue', {mode});
 });
 
 router.get('/stack', function(req, res, next) {
-  res.render('pages/elementaryDS/stack', {});
+  let mode = req.query;
+  res.render('pages/elementaryDS/stack', {mode});
 });
 
 router.get('/linkedList', function(req, res, next) {
   let mode = req.query;
-  res.render('pages/elementaryDS/linkedList', {mode: mode});
+  res.render('pages/elementaryDS/linkedList', {mode});
 });
 
 module.exports = router;
