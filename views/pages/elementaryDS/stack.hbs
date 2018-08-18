@@ -1,11 +1,6 @@
 {{> nav }}
 <div class="container-fluid">
     <div class="row">
-        <div class="col-md-12">
-            <h1>Stack</h1>
-        </div>
-    </div>
-    <div class="row">
         <div class="col-md-8 offset-md-2">
             <a href="/dataStructures/stack?description=true">
                 Description
@@ -21,7 +16,20 @@
            {{> dsSidebar}}
         </div>
         <div class="col-md-10">
-            description block
+           <div class="row">
+               <div class="col-md-12">
+                   <h3>Stack</h3>
+               </div>
+           </div>
+           <div class="row">
+               <div class="col-md-12">
+                   <p>
+                       Stack is a dynamic set in which latest inserted element deletes first.
+                       It demonstrates a last in, first out (LIFO) policy. In stack 
+                       the INSERT operation called PUSH, and DELETE operation called POP. 
+                   </p>
+               </div>
+           </div>
         </div>
     </div>
     {{/if}}
