@@ -5,7 +5,7 @@ class Stack {
     private elements: any[] = [];
    
     stackEmpty() {
-        if(this.top === 0) {
+        if(this.top === -1) {
             return true;
         } else {
             return false;
@@ -21,8 +21,8 @@ class Stack {
         }
     }
 
-    pop(s: any) {
-        if(this.stackEmpty) {
+    pop() {
+        if(this.stackEmpty()) {
             return new Error('Stack underflow');
         } else {
             this.top -= 1;
@@ -30,3 +30,5 @@ class Stack {
         }
     }
 }
+
+export default Stack;
