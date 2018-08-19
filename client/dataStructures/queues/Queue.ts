@@ -17,12 +17,15 @@ class Queue {
         if(this.head === this.tail) {
             throw new Error('queue underflow');
         } else {
+            let element = this.elements[this.head];
             if(this.head === this.size) {
                 this.head = 0;
             } else {
                 this.head += 1;
             }
-            return this.elements[this.head];
+            return element;
         }
     }
 }
+
+export default Queue;
