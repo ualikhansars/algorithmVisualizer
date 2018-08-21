@@ -1,9 +1,9 @@
 class LinkedListNode {
-    private key: any;
-    private prev: number;
-    private next: number;
+    public key: any;
+    public prev: any;
+    public next: any;
 
-    constructor(key: any, prev: number, next: number) {
+    constructor(key: any = null, prev: any = null, next: any = null) {
         this.key = key;
         this.prev = prev;
         this.next = next;
@@ -15,31 +15,37 @@ class DoublyLinkedList {
     private head: any = null;
     private tail: any = null;
 
-    search(k: any) {
+    search(key: any) {
         let x = this.head;
-        while(x != null && x.key !== k) {
+        while(x != null && x.key !== key) {
             x = x.next;
         }
         return x;
     }
 
-    insert(newElement: any) {
-        newElement.next = this.head;
+    insert(newElementKey: any) {
+        let newElement: LinkedListNode = new LinkedListNode(newElementKey, null, this.head);
         if(this.head != null) {
             this.head.prev = newElement;
         }
-        this.head = newElement;
         newElement.prev = null;
+        this.head = newElement;
+       
     }
 
-    delete(element: any) {
-        if(element.prev != null) {
-            element.prev.next = element.next;
-        } else {
-            this.head = element.next;
-        }
-        if(element.next != null) {
-            element.next.prev = element.prev;
+    delete(key: any) {
+        let foundElement = this.search(key);
+        if(foundElement != null) {
+            if(foundElement.prev != null) {
+                foundElement.prev.next = foundElement.next;
+            } else {
+                this.head = foundElement.next;
+            }
+            if(foundElement.next != null) {
+                foundElement.next.prev = foundElement.prev;
+            }
         }
     }
 }
+
+export default DoublyLinkedList;
