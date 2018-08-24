@@ -21,4 +21,9 @@ router.get('/linkedList', function(req, res, next) {
   res.render('pages/elementaryDS/linkedList', {mode});
 });
 
+router.get('/binarySearchTree', function(req, res, next) {
+  let mode = req.query;
+  res.render('pages/trees/binarySearchTree', {mode});
+});
+
 module.exports = router;

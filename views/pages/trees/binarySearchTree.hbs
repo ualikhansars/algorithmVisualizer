@@ -1,0 +1,39 @@
+{{> nav }}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <a href="/dataStructures/binarySearchTree?description=true">
+                Description
+            </a>
+            <a href="/dataStructures/binarySearchTree?visualRepresentation=true">
+                Visual Representation
+            </a>
+        </div>
+    </div>
+    {{#if mode.description}}
+    <div class="row">
+        <div class="col-md-2">
+           {{> dsSidebar}}
+        </div>
+        <div class="col-md-10">
+            <div class="row">
+                <div class="col-md-12">
+                    <h3>Binary Search Tree</h3>
+                </div>
+            </div>
+            description block
+        </div>
+    </div>
+    {{/if}}
+
+    {{#if mode.visualRepresentation}}
+    <div class="row">
+        <div class="col-md-2">
+           {{> dsSidebar}}
+        </div>
+        <div class="col-md-10">
+            visual Representation block
+        </div>
+    </div>
+    {{/if}}
+</div>
