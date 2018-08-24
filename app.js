@@ -7,7 +7,7 @@ var bodyParser = require('body-parser');
 var expressHbs = require('express-handlebars');
 
 var index = require('./routes/index');
-var dataStructures = require('./routes/ds');
+var dataStructures = require('./routes/dataStructures');
 var sortingAlgorithms = require('./routes/sorting');
 var searchingAlgorithms = require('./routes/searching');
 
