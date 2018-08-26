@@ -18,14 +18,14 @@ class BinarySearchTree {
         this.root = null;
     }
 
-    search(node: TreeNode, key: any): any {
-        if(node == null || key == this.root.key) {
-            return this.root;   
+    search(key: any, node: any = this.root): any {
+        if(node == null || key == node.key) {
+            return node;   
         }
         if(key < this.root.key) {
-            return this.search(node.left, key);
+            return this.search(key, node.left);
         } else {
-            return this.search(node.right, key);
+            return this.search(key, node.right);
         }
     }
 
@@ -57,25 +57,25 @@ class BinarySearchTree {
 
     insert(key: any) {
         let node = new TreeNode(key);
-        let y = null;
-        let x = this.root;
-        while(x != null) {
-            y = x;
-            if(node.key < x.key) {
-                x = x.left;
+        let insertedNodeParent = null;
+        let leaf = this.root;
+        while(leaf != null) {
+         insertedNodeParent = leaf;
+            if(node.key < leaf.key) {
+                leaf = leaf.left;
             } else {
-                x = x.right;
+                leaf = leaf.right;
             }
         }
-        node.p = y;
-        if(y == null) {
+        node.p = insertedNodeParent;
+        if (insertedNodeParent == null) {
             this.root = node; // tree was empty
         } 
-        else if(node.key < y.key) {
-            y.left = node;
+        else if(node.key < insertedNodeParent.key) {
+         insertedNodeParent.left = node;
         }
         else {
-            y.right = node;
+         insertedNodeParent.right = node;
         }
     }
 
@@ -114,3 +114,5 @@ class BinarySearchTree {
         }
     }
 }
+
+export default BinarySearchTree;
