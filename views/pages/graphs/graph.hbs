@@ -1,0 +1,54 @@
+{{> nav }}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <a href="/dataStructures/graph?description=true">
+                Description
+            </a>
+            <a href="/dataStructures/graph?visualRepresentation=true">
+                Visual Representation
+            </a>
+        </div>
+    </div>
+    {{#if mode.description}}
+    <div class="row">
+        <div class="col-md-2">
+           {{> dsSidebar}}
+        </div>
+        <div class="col-md-10">
+            <div class="row">
+                <div class="col-md-12">
+                    <h3>Graph</h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <p>
+                        Graph G is an orderer triple (V(G), E(G), 
+                        &#968<sub>G</sub>), consisting of nonempty set of vertices V(G),
+                        set of E(G) and incidence function &#968<sub>G</sub>
+                        which is associates with each edges and pair 
+                        (not always distinct) of vertices.
+                        If  &#968(e) = {u, v}, where u &#8800 v, then e links
+                        vertices u and v. In this case it is denoted as e = uv.
+                        If &#968(e) = u, e is called a loop in vertice u. In 
+                        this case it is also denoted as e = uu and represents 
+                        that e joins vertice u with itself. 
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{/if}}
+
+    {{#if mode.visualRepresentation}}
+    <div class="row">
+        <div class="col-md-2">
+           {{> dsSidebar}}
+        </div>
+        <div class="col-md-10">
+            visual Representation block
+        </div>
+    </div>
+    {{/if}}
+</div>

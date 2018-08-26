@@ -26,4 +26,9 @@ router.get('/binarySearchTree', function(req, res, next) {
   res.render('pages/trees/binarySearchTree', {mode});
 });
 
+router.get('/graph', function(req, res, next) {
+  let mode = req.query;
+  res.render('pages/graphs/graph', {mode});
+});
+
 module.exports = router;
