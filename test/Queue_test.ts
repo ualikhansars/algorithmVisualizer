@@ -22,27 +22,27 @@ describe('Queue test', () => {
         queue.enqueue(number5); 
     });
 
-    it('desqueue returns number1', (done) => {
+    it('dequeue returns number1', (done) => {
         const result = queue.dequeue();
         assert.equal(result, number1);
         done();
     });
-    it('desqueue returns number2', (done) => {
+    it('dequeue returns number2', (done) => {
         const result = queue.dequeue();
         assert.equal(result, number2);
         done();
     });
-    it('desqueue returns number3', (done) => {
+    it('dequeue returns number3', (done) => {
         const result = queue.dequeue();
         assert.equal(result, number3);
         done();
     });
-    it('desqueue returns number4', (done) => {
+    it('dequeue returns number4', (done) => {
         const result = queue.dequeue();
         assert.equal(result, number4);
         done();
     });
-    it('desqueue returns number5', (done) => {
+    it('dequeue returns number5', (done) => {
         const result = queue.dequeue();
         assert.equal(result, number5);
         done();

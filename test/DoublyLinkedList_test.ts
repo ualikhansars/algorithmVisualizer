@@ -5,7 +5,7 @@ import Random from './helpers/Random';
 describe('DoublyLinkedList test', () => {
 
     let doublyLinkedList: DoublyLinkedList;
-    let number1: number, number2: number, number3: number, number4: number, number5: number;
+    let number1: number, number2: number, number3: number;
 
     before(() => {
         doublyLinkedList = new DoublyLinkedList();
@@ -146,6 +146,90 @@ describe('DoublyLinkedList test', () => {
         });
         it('number3SearchResult is null', () => {
             assert.equal(number3SearchResult, null);
+        });
+    });
+
+    describe('insert back number1 test', () => {
+        let number1SearchResult: any;
+        before(() => {
+            doublyLinkedList.insertBack(number1);
+            number1SearchResult = doublyLinkedList.search(number1);
+        });
+        it("number1SearchResult key is number1", () => {
+            assert.equal(number1SearchResult.key, number1);
+        });
+        it('number1SearchResult prev is null', () => {
+            assert.equal(number1SearchResult.prev, null);
+        });
+        it('number1SearchResult next is null', () => {
+            assert.equal(number1SearchResult.next, null);
+        });
+    });
+
+    describe('insert back number2', () => {
+        let number1SearchResult: any;
+        let number2SearchResult: any;
+        before(() => {
+            doublyLinkedList.insertBack(number2);
+            number1SearchResult = doublyLinkedList.search(number1);
+            number2SearchResult = doublyLinkedList.search(number2);
+        });
+        it("number1SearchResult key is number1", () => {
+            assert.equal(number1SearchResult.key, number1);
+        });
+        it('number1SearchResult prev is null', () => {
+            assert.equal(number1SearchResult.prev, null);
+        });
+        it('number1SearchResult next key is number2', () => {
+            assert.equal(number1SearchResult.next.key, number2);
+        });
+        it('number2SearchResult key is number2', () => {
+            assert.equal(number2SearchResult.key, number2);
+        });
+        it('number2SearchResult prev key is number1', () => {
+            assert.equal(number2SearchResult.prev.key, number1);
+        });
+        it('number2SearchResult next is null', () => {
+            assert.equal(number2SearchResult.next, null);
+        });
+    });
+
+    describe('insert number3', () => {
+        let number1SearchResult: any;
+        let number2SearchResult: any;
+        let number3SearchResult: any;
+        before(() => {
+            doublyLinkedList.insertBack(number3);
+            number1SearchResult = doublyLinkedList.search(number1);
+            number2SearchResult = doublyLinkedList.search(number2);
+            number3SearchResult = doublyLinkedList.search(number3);
+        });
+        it("number1SearchResult key is number1", () => {
+            assert.equal(number1SearchResult.key, number1);
+        });
+        it('number1SearchResult prev is null', () => {
+            assert.equal(number1SearchResult.prev, null);
+        });
+        it('number1SearchResult next key is number2', () => {
+            assert.equal(number1SearchResult.next.key, number2);
+        });
+        it('number2SearchResult key is number2', () => {
+            assert.equal(number2SearchResult.key, number2);
+        });
+        it('number2SearchResult prev key is number1', () => {
+            assert.equal(number2SearchResult.prev.key, number1);
+        });
+        it('number2SearchResult next key is number3', () => {
+            assert.equal(number2SearchResult.next.key, number3);
+        });
+        it('number3SearchResult key is number3', () => {
+            assert.equal(number3SearchResult.key, number3);
+        });
+        it('number3SearchResult prev key is number2', () => {
+            assert.equal(number3SearchResult.prev.key, number2);
+        });
+        it('number3SearchResult next is null', () => {
+            assert.equal(number3SearchResult.next, null);
         });
     });
 });

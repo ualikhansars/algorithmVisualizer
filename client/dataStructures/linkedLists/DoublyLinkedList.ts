@@ -27,10 +27,24 @@ class DoublyLinkedList {
         let newElement: LinkedListNode = new LinkedListNode(newElementKey, null, this.head);
         if(this.head != null) {
             this.head.prev = newElement;
+        } else {
+            this.tail = newElement;
         }
         newElement.prev = null;
         this.head = newElement;
-       
+    }
+
+    insertBack(newElementKey: any) {
+        let newElement: LinkedListNode = new LinkedListNode(newElementKey, null, null);
+        if(this.head == null) {
+            this.head = newElement;
+        }
+        if(this.tail != null) {
+            this.tail.next = newElement;
+            newElement.prev = this.tail;
+        }
+        newElement.next = null;
+        this.tail = newElement;
     }
 
     delete(key: any) {
@@ -43,6 +57,8 @@ class DoublyLinkedList {
             }
             if(foundElement.next != null) {
                 foundElement.next.prev = foundElement.prev;
+            } else {
+                this.tail = foundElement.prev;
             }
         }
     }
