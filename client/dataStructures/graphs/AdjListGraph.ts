@@ -1,7 +1,8 @@
 import DoublyLinkedList from '../linkedLists/DoublyLinkedList';
 
 class AdjListGraph {
-    constructor(V: Number[]) {
+    constructor(V: any[]) {
+        this.V = V;
         for(let v of V) {
             let newList = new DoublyLinkedList();
             newList.insert(v);
@@ -10,6 +11,7 @@ class AdjListGraph {
     }
 
     public adj: any = {};
+    public V: any = [];
 
     addEdge(src: Number, dest: Number) {
         this.adj[src.toString()].insertBack(dest);

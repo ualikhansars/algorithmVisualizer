@@ -13,8 +13,15 @@ class Queue {
         } 
     }
 
-    dequeue() {
+    isEmpty() {
         if(this.head === this.tail) {
+            return true;
+        } 
+        return false;
+    }
+
+    dequeue() {
+        if(this.isEmpty()) {
             throw new Error('queue underflow');
         } else {
             let element = this.elements[this.head];
