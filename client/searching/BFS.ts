@@ -4,8 +4,8 @@ import Queue from '../dataStructures/queues/Queue';
 export const BFS = (G: AdjListGraph, s: any) => {
     let level: any = {};
     let parent: any = {};
-    level[s.toString()] = 0;
-    parent[s.toString()] = null;
+    level[s] = 0;
+    parent[s] = null;
     let i = 1;
     let queue = new Queue();
     queue.enqueue(s); 
@@ -15,12 +15,14 @@ export const BFS = (G: AdjListGraph, s: any) => {
         while(node.next != null) {
             let neighbor = node.next.key;
             if(!level.hasOwnProperty(neighbor)) {
-                level[neighbor.toString()] = i;
-                parent[neighbor.toString()] = u;
+                level[neighbor] = i;
+                parent[neighbor] = u;
                 queue.enqueue(neighbor);
             }
             node = node.next;
         }
         i = i + 1;
     }
+
+    return parent;
 }
