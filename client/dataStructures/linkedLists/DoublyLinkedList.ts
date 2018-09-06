@@ -15,7 +15,7 @@ class DoublyLinkedList {
     private head: any = null;
     private tail: any = null;
 
-    search(key: any) {
+    search(key: any): LinkedListNode {
         let x = this.head;
         while(x != null && x.key !== key) {
             x = x.next;

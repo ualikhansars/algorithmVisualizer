@@ -16,6 +16,10 @@ class AdjListGraph {
     addEdge(src: Number, dest: Number) {
         this.adj[src.toString()].insertBack(dest);
     }
+
+    getNeighbors(vertex: any): DoublyLinkedList {
+        return this.adj[vertex];
+    }
 }
 
 export default AdjListGraph;
