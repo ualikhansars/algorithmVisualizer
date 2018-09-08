@@ -6,15 +6,15 @@ class AdjListGraph {
         for(let v of V) {
             let newList = new DoublyLinkedList();
             newList.insert(v);
-            this.adj[v.toString()] = newList;
+            this.adj[v] = newList;
         }
     }
 
     public adj: any = {};
     public V: any = [];
 
-    addEdge(src: Number, dest: Number) {
-        this.adj[src.toString()].insertBack(dest);
+    addEdge(src: any, dest: any) {
+        this.adj[src].insertBack(dest);
     }
 
     getNeighbors(vertex: any): DoublyLinkedList {

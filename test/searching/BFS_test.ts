@@ -2,7 +2,6 @@ import {assert} from 'chai';
 import AdjListGraph from '../../client/dataStructures/graphs/AdjListGraph';
 import Stack from '../../client/dataStructures/stack/Stack';
 import {BFS} from '../../client/searching/BFS';
-import Random from '../helpers/Random';
 
 describe('Breadth First Search test', () => {
     let graph: AdjListGraph;
