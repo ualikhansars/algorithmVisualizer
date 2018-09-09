@@ -1,1 +1,47 @@
-<h1>Breadth First Search</h1>
+{{> nav }}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <a href="/searchingAlgorithms/BFS?description=true">
+                Description
+            </a>
+            <a href="/searchingAlgorithms/BFS?visualRepresentation=true">
+                Visual Representation
+            </a>
+        </div>
+    </div>
+
+ {{#if mode.description}}
+    <div class="row">
+        <div class="col-md-2">
+           {{> searchingSidebar }}
+        </div>
+        <div class="col-md-10">
+           <div class="row">
+               <div class="col-md-12">
+                   <h3>Breadth First Search</h3>
+               </div>
+           </div>
+           <div class="row">
+               <div class="col-md-12">
+                   <p>
+                      Description
+                   </p>
+               </div>
+           </div>
+        </div>
+    </div>
+    {{/if}}
+
+    {{#if mode.visualRepresentation}}
+    <div class="row">
+        <div class="col-md-2">
+           {{> searchingSidebar}}
+        </div>
+        <div class="col-md-10">
+            visual Representation block
+            <canvas id="backgroundCanvas"></canvas>
+        </div>
+    </div>
+    {{/if}}
+</div>

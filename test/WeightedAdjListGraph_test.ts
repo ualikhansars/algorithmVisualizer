@@ -2,7 +2,7 @@ import {assert} from 'chai';
 import WeightedAdjListGraph from '../client/dataStructures/graphs/WeightedAdjListGraph';
 import DoublyLinkedList from '../client/dataStructures/linkedLists/DoublyLinkedList';
 
-describe('AdjListGraph test', () => {
+describe('WeightedAdjListGraph test', () => {
     let weightedAdjListGraph: WeightedAdjListGraph;
     let A: string, B: string, C: string, D: string;
     before(() => {
