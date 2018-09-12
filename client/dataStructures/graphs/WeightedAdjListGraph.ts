@@ -40,7 +40,7 @@ class WeightedAdjListGraph {
         return this.adjArray[vertex];
     }
 
-    getWeightedEdge(src: any, dest: any): EdgeWeightPair {
+    getWeightedEdge(src: any, dest: any) {
         let head = this.adj[src].search(src);
         let x = head;
         while(x != null && x.key.dest !== dest) {

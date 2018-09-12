@@ -36,7 +36,7 @@ class PriorityQueue {
     }
 
     isEmpty() {
-        if(this.elements.length !== 0) {
+        if(this.elements.length === 0) {
             return true;
         } else {
             return false;
