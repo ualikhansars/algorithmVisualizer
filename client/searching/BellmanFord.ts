@@ -1,5 +1,4 @@
 import WeightedAdjListGraph from "../dataStructures/graphs/WeightedAdjListGraph";
-import PriorityQueue from "../dataStructures/queues/PriorityQueue";
 
 export const BellmanFord = (G: WeightedAdjListGraph, s: any) => {
     let negativeCycles = false;
@@ -17,7 +16,7 @@ export const BellmanFord = (G: WeightedAdjListGraph, s: any) => {
             if(distance[v] > distance[u] + edge.weight) {
                 let newWeight = distance[u] + edge.weight;
                 distance[v] = newWeight
-                parent[v] = u.key;
+                parent[v] = u;
             }
         }
     }
@@ -30,4 +29,9 @@ export const BellmanFord = (G: WeightedAdjListGraph, s: any) => {
             }
         }    
     } 
+
+    if(!negativeCycles) {
+        return parent;
+    } 
+    return null;
 };
