@@ -1,7 +1,6 @@
 import {ctx} from './canvas';
 import {stackSettings} from './stackSettings';
 import {drawLine} from '../../utils/draw/drawLine';
-import { start } from 'repl';
 
 export const drawStack = (size: number = 10) => {
     let {startX, startY, gridWidth, gridHeight} = stackSettings;
