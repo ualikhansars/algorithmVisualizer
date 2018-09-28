@@ -40,7 +40,35 @@
            {{> dsSidebar}}
         </div>
         <div class="col-md-7">
-            <canvas id="dataStructuresCanvas"></canvas>
+            <div class="row">
+                <div class="col-md-12">
+                    <table>
+                        <td>
+                            <input type="text" size="4" id="stackInput" />
+                        </td>
+                        <td>
+                            <button class="btn btn-default" id="stackPush">
+                                push
+                            </button>
+                        </td>
+                        <td>
+                            <button class="btn btn-default">
+                                pop
+                            </button>
+                        </td>
+                        <td>
+                            <button class="btn btn-default">
+                                clear
+                            </button>
+                        </td>
+                    </table>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                     <canvas id="dataStructuresCanvas"></canvas>
+                </div>
+            </div>
         </div>
         <div class="col-md-3">
              <canvas id="codeCanvas"></canvas>
