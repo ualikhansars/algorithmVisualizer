@@ -1,20 +1,23 @@
 import {ctx} from './canvas';
-import {stackSettings} from './stackSettings';
+import {stackLayer} from './stackSettings';
 import {drawLine} from '../../utils/draw/drawLine';
 
 export const drawStack = (size: number = 10) => {
-    let {startX, startY, gridWidth, gridHeight} = stackSettings;
-    const stackWidth = gridWidth * size;
-    const stackHeight = gridHeight;
-    let startXLine = startX;
-    let startYLine = startY;
-    const finishYLine = startY + gridHeight;
+    const stackHeight = stackLayer.gridHeight * size;
+    const stackWidth = stackLayer.gridWidth;
+
     ctx.fillStyle = '#3b2b7f';
-    ctx.rect(startX, startY, stackWidth, stackHeight);
+    ctx.rect(stackLayer.startX, stackLayer.startY, stackWidth, stackHeight);
     ctx.stroke();
-    startXLine += gridWidth; 
-    for(let i = 0; i < size - 1; i++) {
-        drawLine(ctx, startXLine, startYLine, startXLine, finishYLine);
-        startXLine += gridWidth; 
+
+    let startLineX = stackLayer.startX;
+    let startLineY = stackLayer.startY + stackLayer.gridHeight;
+    let finishLineX = startLineX + stackLayer.gridWidth;
+    let finishLineY = startLineY;
+
+    for(let i = 0; i < size; ++i) {
+        drawLine(ctx, startLineX, startLineY, finishLineX, finishLineY);
+        startLineY += stackLayer.gridHeight;
+        finishLineY = startLineY;
     }
-};
+}
