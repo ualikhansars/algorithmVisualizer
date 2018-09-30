@@ -1,6 +1,6 @@
 const startOfLayers: any = {
-    x: 40,
-    y: 40
+    x: 80,
+    y: 80
 }
 
 const layerDefaultSize: any = {
@@ -10,7 +10,7 @@ const layerDefaultSize: any = {
 
 export const indexLayer: any = {
     startX: startOfLayers.x,
-    startY: startOfLayers.y,
+    startY: startOfLayers.y - layerDefaultSize.y,
     gridWidth: layerDefaultSize.x,
     gridHeight: layerDefaultSize.y
 }
@@ -23,8 +23,12 @@ export const stackLayer: any = {
 }
 
 export const pointerLayer: any = {
-    gridWidth: 100,
-    gridHeight: 100,
+    gridWidth: layerDefaultSize.x,
+    gridHeight: layerDefaultSize.y,
     startX: stackLayer.startX + stackLayer.gridWidth,
-    startY: startOfLayers.y
+    startY: startOfLayers.y - layerDefaultSize.y,
+    imageWidth: 24,
+    imageHeight: 24,
+    fontSize: 24,
+    offset: 5
 }

@@ -1,9 +1,11 @@
 import {ctx} from './canvas';
 import {
     indexLayer,
-    stackLayer
+    stackLayer,
+    pointerLayer
 } from './stackSettings';
 import {drawLine} from '../../utils/draw/drawLine';
+import { drawImage } from '../../utils/draw/drawImage';
 
 export const drawStack = (size: number = 10) => {
     const stackHeight = stackLayer.gridHeight * size;
@@ -29,7 +31,7 @@ export const drawIndexLayer = (size: number = 10) => {
     let x = indexLayer.startX;
     let y = indexLayer.startY;
     ctx.font = "18px serif";
-    for(let i = 0; i < size; ++i) {
+    for(let i = -1; i < size; ++i) {
         let textX = x + (indexLayer.gridWidth / 2);
         let textY = y + (indexLayer.gridHeight / 2);
         ctx.fillText(i, textX, textY);
@@ -37,7 +39,17 @@ export const drawIndexLayer = (size: number = 10) => {
     }
 }
 
+export const drawPointerLayer = () => {
+    const {startX, startY, imageWidth, imageHeight, offset, fontSize} = pointerLayer;
+    drawImage(ctx, '/images/left-arrow24.png', startX, startY, imageWidth, imageHeight);
+    const textX = startX + imageWidth + offset;
+    const textY = startY + (imageHeight / 2) + offset;  
+    ctx.font =  `${fontSize}px serif`;
+    ctx.fillText('top', textX, textY);
+}
+
 export const drawVisualRepresentation = () => {
     drawStack();
     drawIndexLayer();
+    drawPointerLayer();
 } 
