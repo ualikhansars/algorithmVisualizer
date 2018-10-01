@@ -63,5 +63,4 @@ export const drawVisualRepresentation = () => {
     drawStack();
     drawIndexLayer();
     drawPointerLayer();
-    drawElementInStack('6', 2);
 } 
