@@ -48,8 +48,20 @@ export const drawPointerLayer = () => {
     ctx.fillText('top', textX, textY);
 }
 
+export const drawElementInStack = (element: string, index: number = 0) => {
+    let {startX, startY, gridWidth, gridHeight, fontSize} = stackLayer;
+    startY += index * gridHeight;
+    let offsetX = Math.round(gridWidth * 0.1);
+    let offsetY = Math.round(gridHeight * 0.2);
+    let elementX = startX + (gridWidth / 2) - offsetX;
+    let elementY = startY + (gridHeight / 2) + offsetY;
+    ctx.font =  `${fontSize}px serif`;
+    ctx.fillText(element, elementX, elementY);
+}
+
 export const drawVisualRepresentation = () => {
     drawStack();
     drawIndexLayer();
     drawPointerLayer();
+    drawElementInStack('6', 2);
 } 
