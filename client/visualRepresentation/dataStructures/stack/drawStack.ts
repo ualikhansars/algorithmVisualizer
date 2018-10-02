@@ -51,9 +51,9 @@ export const drawPointerLayer = () => {
 export const drawElementInStack = (element: string, index: number = 0) => {
     let {startX, startY, gridWidth, gridHeight, fontSize} = stackLayer;
     startY += index * gridHeight;
-    let offsetX = Math.round(gridWidth * 0.1);
+    let offsetX = Math.round(gridWidth * 0.2);
     let offsetY = Math.round(gridHeight * 0.2);
-    let elementX = startX + (gridWidth / 2) - offsetX;
+    let elementX = startX + offsetX;
     let elementY = startY + (gridHeight / 2) + offsetY;
     ctx.font =  `${fontSize}px serif`;
     ctx.fillText(element, elementX, elementY);
