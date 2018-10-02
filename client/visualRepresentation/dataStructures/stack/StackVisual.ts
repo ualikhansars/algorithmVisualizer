@@ -1,8 +1,8 @@
 import { drawElementInStack } from './drawStack';
 
-export const StackVisual =  {
-    top: -1,
-    maxSize: 10,
+class StackVisual {
+    private top = -1;
+    private maxSize = 10;
 
     push(element: string) {
         this.top += 1;
@@ -11,3 +11,5 @@ export const StackVisual =  {
         }
     }
 }
+
+export default StackVisual;
