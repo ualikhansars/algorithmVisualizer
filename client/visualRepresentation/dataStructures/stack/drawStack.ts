@@ -39,11 +39,14 @@ export const drawIndexLayer = (size: number = 10) => {
     }
 }
 
-export const drawPointerLayer = () => {
-    const {startX, startY, imageWidth, imageHeight, offset, fontSize} = pointerLayer;
-    drawImage(ctx, '/images/left-arrow24.png', startX, startY, imageWidth, imageHeight);
-    const textX = startX + imageWidth + offset;
-    const textY = startY + (imageHeight / 2) + offset;  
+export const drawPointer = (index: number = 0) => {
+    const {startX, startY, imageWidth, imageHeight, offset, fontSize, gridHeight} = pointerLayer;
+    let x = startX + offset;
+    let y = startY +  (index * gridHeight);
+    let centerY = y + (gridHeight / 2) - (imageHeight / 2);
+    drawImage(ctx, '/images/left-arrow24.png', x, centerY, imageWidth, imageHeight);
+    const textX = x + imageWidth + offset;
+    const textY = centerY + fontSize - offset;  
     ctx.font =  `${fontSize}px serif`;
     ctx.fillText('top', textX, textY);
 }
@@ -62,5 +65,5 @@ export const drawElementInStack = (element: string, index: number = 0) => {
 export const drawVisualRepresentation = () => {
     drawStack();
     drawIndexLayer();
-    drawPointerLayer();
+    drawPointer(7);
 } 
