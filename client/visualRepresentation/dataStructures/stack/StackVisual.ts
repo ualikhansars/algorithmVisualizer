@@ -1,5 +1,6 @@
 import { 
     drawElementInStack,
+    clearElementInStack,
     movePointer 
 } from './drawStack';
 
@@ -12,6 +13,14 @@ class StackVisual {
         if(this.top < this.maxSize) {
             drawElementInStack(element, this.top);
             movePointer(this.top - 1, this.top);
+        }
+    }
+
+    pop() {
+        if(this.top >= 0) {
+            clearElementInStack(this.top);
+            movePointer(this.top, this.top - 1);
+            this.top -= 1;
         }
     }
 }

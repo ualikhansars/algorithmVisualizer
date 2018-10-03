@@ -87,6 +87,18 @@ export const drawElementInStack = (element: string, index: number = 0) => {
     ctx.fillText(element, elementX, elementY);
 }
 
+export const clearElementInStack = (index: number) => {
+    let {startX, startY, gridWidth, gridHeight, fontSize} = stackLayer;
+    startY += index * gridHeight;
+    let offsetX = Math.round(gridWidth * 0.2);
+    let offsetY = Math.round(gridHeight * 0.2);
+    let x = startX + offsetX;
+    let y = startY + offsetX;
+    let width = gridWidth - (offsetX * 2);
+    let height = gridHeight - (offsetY * 2);
+    ctx.clearRect(x, y, width, height);
+}
+
 export const drawVisualRepresentation = () => {
     drawStack();
     drawIndexLayer();
