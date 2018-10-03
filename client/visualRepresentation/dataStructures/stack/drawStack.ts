@@ -42,13 +42,38 @@ export const drawIndexLayer = (size: number = 10) => {
 export const drawPointer = (index: number = 0) => {
     const {startX, startY, imageWidth, imageHeight, offset, fontSize, gridHeight} = pointerLayer;
     let x = startX + offset;
-    let y = startY +  (index * gridHeight);
+    let y = (startY + gridHeight) + (index * gridHeight);
     let centerY = y + (gridHeight / 2) - (imageHeight / 2);
     drawImage(ctx, '/images/left-arrow24.png', x, centerY, imageWidth, imageHeight);
     const textX = x + imageWidth + offset;
     const textY = centerY + fontSize - offset;  
-    ctx.font =  `${fontSize}px serif`;
+    ctx.font = `${fontSize}px serif`;
     ctx.fillText('top', textX, textY);
+}
+
+export const movePointer = (prevIndex: number, nextIndex: number) => {
+    const {startY, gridHeight} = pointerLayer;
+    let currentY = (startY + gridHeight) + (prevIndex * gridHeight);
+    let nextY = (startY + gridHeight) + (nextIndex * gridHeight);
+    let directionY = nextIndex - prevIndex;
+    animatePointer(currentY, nextY, directionY);
+}
+
+const animatePointer = (currentY: number, nextY: number, directionY: number) => {
+    if(currentY === nextY) return;
+    const {startX, imageWidth, imageHeight, offset, fontSize, gridHeight, gridWidth, animationSpeed} = pointerLayer;
+    let x = startX + offset;
+    ctx.clearRect(x, currentY, gridWidth, gridHeight);
+    let centerY = currentY + (gridHeight / 2) - (imageHeight / 2);
+    drawImage(ctx, '/images/left-arrow24.png', x, centerY, imageWidth, imageHeight);
+    const textX = x + imageWidth + offset;
+    const textY = centerY + fontSize - offset;  
+    ctx.font = `${fontSize}px serif`;
+    ctx.fillText('top', textX, textY);
+    setTimeout(() => {
+        currentY += directionY;
+        animatePointer(currentY, nextY, directionY)
+    }, animationSpeed);
 }
 
 export const drawElementInStack = (element: string, index: number = 0) => {
@@ -58,12 +83,12 @@ export const drawElementInStack = (element: string, index: number = 0) => {
     let offsetY = Math.round(gridHeight * 0.2);
     let elementX = startX + offsetX;
     let elementY = startY + (gridHeight / 2) + offsetY;
-    ctx.font =  `${fontSize}px serif`;
+    ctx.font = `${fontSize}px serif`;
     ctx.fillText(element, elementX, elementY);
 }
 
 export const drawVisualRepresentation = () => {
     drawStack();
     drawIndexLayer();
-    drawPointer(7);
+    drawPointer(-1);
 } 

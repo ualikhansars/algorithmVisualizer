@@ -23,12 +23,13 @@ export const stackLayer: any = {
 }
 
 export const pointerLayer: any = {
-    gridWidth: layerDefaultSize.x,
-    gridHeight: layerDefaultSize.y,
+    animationSpeed: 30,
     startX: stackLayer.startX + stackLayer.gridWidth,
     startY: startOfLayers.y - layerDefaultSize.y,
     imageWidth: 24,
     imageHeight: 24,
     fontSize: 24,
-    offset: 5
+    offset: 5,
+    gridWidth: layerDefaultSize.x + 20,
+    gridHeight: layerDefaultSize.y,
 }

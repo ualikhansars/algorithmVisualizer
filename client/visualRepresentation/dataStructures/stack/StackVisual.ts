@@ -1,4 +1,7 @@
-import { drawElementInStack } from './drawStack';
+import { 
+    drawElementInStack,
+    movePointer 
+} from './drawStack';
 
 class StackVisual {
     private top = -1;
@@ -8,6 +11,7 @@ class StackVisual {
         this.top += 1;
         if(this.top < this.maxSize) {
             drawElementInStack(element, this.top);
+            movePointer(this.top - 1, this.top);
         }
     }
 }
