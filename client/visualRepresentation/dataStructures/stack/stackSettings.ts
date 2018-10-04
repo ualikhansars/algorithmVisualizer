@@ -18,6 +18,11 @@ export const codeControlArea: any = {
     height: 600,
 }
 
+export const codeControlCanvas: any = {
+    startX: 80,
+    startY: 80,
+}
+
 export const indexLayer: any = {
     startX: startOfLayers.x,
     startY: startOfLayers.y - layerDefaultSize.y,
