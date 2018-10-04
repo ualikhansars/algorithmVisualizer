@@ -8,6 +8,16 @@ const layerDefaultSize: any = {
     y: 40
 }
 
+export const canvasArea: any = {
+    width: 500,
+    height: 600
+} 
+
+export const codeControlArea: any = {
+    width: 600,
+    height: 600,
+}
+
 export const indexLayer: any = {
     startX: startOfLayers.x,
     startY: startOfLayers.y - layerDefaultSize.y,
