@@ -1,14 +1,11 @@
-import { drawLine } from "../draw/drawLine";
-
 class Code {
-    private fontSize: number = 18;
+    private fontSize: number = 22;
     private x: number = 20; 
     private y: number = 40;
     private lineHeight: number = 30;
     private indentSize: number = 20;
 
-    private line: number = 0;
-    private lineNumber: number = 1;
+    private lineNumber: number = 0;
     private ctx: CanvasRenderingContext2D;
 
     constructor(context: CanvasRenderingContext2D) {
@@ -16,20 +13,25 @@ class Code {
     }
 
     private drawLineNumber() {
-        let x = this.x;
-        let y = this.y + this.line * this.lineHeight;
+        const x = this.x;
+        const y = this.y + this.lineNumber * this.lineHeight;
+        const line = (this.lineNumber + 1).toString();
         this.ctx.font = `${this.fontSize}px serif`;
-        this.ctx.fillText(this.lineNumber.toString(), x, y);
-        this.lineNumber++;
+        this.ctx.fillText(line, x, y);
     } 
 
     codeLine(indent: number, code: string) {
         this.drawLineNumber();
         let x = this.x + indent * this.indentSize;
-        let y = this.y + this.line * this.lineHeight;
+        let y = this.y + this.lineNumber * this.lineHeight;
         this.ctx.font = `${this.fontSize}px serif`;
         this.ctx.fillText(code, x, y);
-        this.line += 1;
+        this.lineNumber += 1;
+    }
+
+    newLine() {
+        this.drawLineNumber();
+        this.lineNumber++;
     }
 }
 
