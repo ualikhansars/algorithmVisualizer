@@ -22,3 +22,5 @@ class InstructionDetails {
         this.animation = animation;
     }
 }
+
+export default CodeInstruction;

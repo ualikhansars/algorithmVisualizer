@@ -8,6 +8,11 @@ const layerDefaultSize: any = {
     y: 40
 }
 
+export const codeInstructionLines = {
+    push: 1,
+    pop: 5
+}
+
 export const canvasArea: any = {
     width: 500,
     height: 600

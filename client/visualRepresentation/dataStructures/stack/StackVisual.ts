@@ -1,8 +1,9 @@
 import { 
     drawElementInStack,
     clearElementInStack,
-    movePointer 
 } from './drawStack';
+
+import {movePointer} from './animations';
 
 class StackVisual {
     private top = -1;
