@@ -5,23 +5,24 @@ import {
 
 import {movePointer} from './animations';
 
-class StackVisual {
-    private top = -1;
-    private maxSize = 10;
+let top = -1;
+let maxSize = 10;
 
-    push(element: string) {
-        this.top += 1;
-        if(this.top < this.maxSize) {
-            drawElementInStack(element, this.top);
-            movePointer(this.top - 1, this.top);
-        }
+class StackVisual {
+    static push(element: string) {
+        return new Promise(resolve => {
+            top += 1;
+            if(top < maxSize) {
+                movePointer(top - 1, top).then(() => resolve());
+            }
+        });
     }
 
-    pop() {
-        if(this.top >= 0) {
-            clearElementInStack(this.top);
-            movePointer(this.top, this.top - 1);
-            this.top -= 1;
+    static pop() {
+        if(top >= 0) {
+            clearElementInStack(top);
+            movePointer(top, top - 1);
+            top -= 1;
         }
     }
 }
