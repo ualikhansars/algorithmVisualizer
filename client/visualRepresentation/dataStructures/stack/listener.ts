@@ -7,8 +7,6 @@ export const stackListener = () => {
     pushButton.addEventListener('click', (e: any) => {
         let element: any = document.getElementById("stackInput");
         if(element && element.value) {
-        //    stackVisual.push(element.value);
-        //    element.value = '';
             codeInstruction.processCode(codeInstructionLines.push, [element.value]);
             pushButton.disabled = true;
             setTimeout(() => pushButton.disabled = false, 2000);

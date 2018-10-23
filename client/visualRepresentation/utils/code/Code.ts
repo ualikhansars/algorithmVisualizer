@@ -1,9 +1,14 @@
+import {drawLine} from '../draw/drawLine';
+
 class Code {
     private fontSize: number = 22;
+    private animationLineIndent: number = 15;
     private x: number = 20; 
     private y: number = 40;
+    private offsetY: number = 6;
     private lineHeight: number = 30;
     private indentSize: number = 20;
+    private defaultColor = "#000";
 
     private lineNumber: number = 0;
     private ctx: CanvasRenderingContext2D;
@@ -32,6 +37,15 @@ class Code {
     newLine() {
         this.drawLineNumber();
         this.lineNumber++;
+    }
+
+    colorCodeLine(line: number) {
+        let defaultY = this.y - this.lineHeight + this.offsetY;
+        let startX = this.x + this.animationLineIndent;
+        let finishX = startX;
+        let startY = defaultY + this.lineHeight * (line - 1);
+        let finishY = startY + this.lineHeight;
+        drawLine(this.ctx, startX, startY, finishX, finishY);
     }
 }
 
