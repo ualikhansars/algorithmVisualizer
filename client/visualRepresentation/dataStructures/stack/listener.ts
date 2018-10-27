@@ -2,6 +2,7 @@ import StackVisual from './StackVisual';
 import {codeInstructionLines} from './stackSettings';
 import {codeInstruction} from './instructions';
 
+const stackVisual = new StackVisual();
 export const stackListener = () => {
     let pushButton: any = document.getElementById("stackPush");
     pushButton.addEventListener('click', (e: any) => {
@@ -15,7 +16,7 @@ export const stackListener = () => {
 
     let popButton: any = document.getElementById('stackPop');
     popButton.addEventListener('click', (e: any) => {
-        StackVisual.pop();
+        stackVisual.pop();
         popButton.disabled = true;
         setTimeout(() => popButton.disabled = false, 2000);
     });

@@ -44,9 +44,7 @@ class Code {
         let finishX = startX;
         let startY = defaultY + this.lineHeight * (line - 1);
         let finishY = startY + this.lineHeight;
-        this.ctx.fillStyle = "red";
         drawLine(this.ctx, startX, startY, finishX, finishY);
-        this.ctx.fillStyle = "#000";
     }
 
     removeCodeLine(line: number) {

@@ -1,10 +1,10 @@
-import {ctx} from './canvas';
+import { ctx, codeCtx } from './canvas';
 import {
     indexLayer,
     stackLayer,
     pointerLayer
 } from './stackSettings';
-import {drawLine} from '../../utils/draw/drawLine';
+import { drawLine } from '../../utils/draw/drawLine';
 import { drawImage } from '../../utils/draw/drawImage';
 
 export const drawStack = (size: number = 10) => {

@@ -9,16 +9,28 @@ let top = -1;
 let maxSize = 10;
 
 class StackVisual {
-    static push(element: string) {
+
+    addElement(value: string) {
         return new Promise(resolve => {
-            top += 1;
+            if(top < maxSize) {
+                setTimeout(() => {
+                    drawElementInStack(value, top);
+                }, 1000);
+                resolve();
+            }
+        });
+    }
+
+    movePointer(value: string) {
+        return new Promise(resolve => {
+            top = top + 1;
             if(top < maxSize) {
                 movePointer(top - 1, top).then(() => resolve());
             }
         });
     }
 
-    static pop() {
+    pop() {
         if(top >= 0) {
             clearElementInStack(top);
             movePointer(top, top - 1);

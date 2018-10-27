@@ -12,14 +12,17 @@ class CodeInstruction {
     }
 
     processCode(line: number, parameters: any[]) {
+        console.error('line', line);
         const instruction = this.instructions[line];
+        if(!instruction) return;
         code.colorCodeLine(line);
-        if(instruction.nextInstructionLine === null) return;
         if(instruction.animation) {
             instruction.animation(...parameters).then(
                 () => {
-                    code.removeCodeLine(line);
-                    this.processCode(instruction.nextInstructionLine, parameters);
+                    setTimeout(() => {
+                        code.removeCodeLine(line);
+                        this.processCode(instruction.nextInstructionLine, parameters);
+                    }, 2000); 
                 } 
             );
         } else {
