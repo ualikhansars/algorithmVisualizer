@@ -8,7 +8,6 @@ class Code {
     private offsetY: number = 6;
     private lineHeight: number = 30;
     private indentSize: number = 20;
-    private defaultColor = "#000";
 
     private lineNumber: number = 0;
     private ctx: CanvasRenderingContext2D;
@@ -45,7 +44,18 @@ class Code {
         let finishX = startX;
         let startY = defaultY + this.lineHeight * (line - 1);
         let finishY = startY + this.lineHeight;
+        this.ctx.fillStyle = "red";
         drawLine(this.ctx, startX, startY, finishX, finishY);
+        this.ctx.fillStyle = "#000";
+    }
+
+    removeCodeLine(line: number) {
+        let defaultY = this.y - this.lineHeight + this.offsetY;
+        let x = this.x + this.animationLineIndent - this.offsetY;
+        let y = defaultY +  this.lineHeight * (line - 1);
+        let width = 10;
+        let height = this.lineHeight + this.offsetY;
+        this.ctx.clearRect(x, y, width, height);
     }
 }
 

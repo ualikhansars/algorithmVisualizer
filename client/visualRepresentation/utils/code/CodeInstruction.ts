@@ -1,3 +1,8 @@
+import Code from './Code';
+import {codeCtx} from '../../dataStructures/stack/canvas';
+
+const code = new Code(codeCtx);
+
 class CodeInstruction {
     private instructions: any = {};
 
@@ -8,15 +13,18 @@ class CodeInstruction {
 
     processCode(line: number, parameters: any[]) {
         const instruction = this.instructions[line];
+        code.colorCodeLine(line);
         if(instruction.nextInstructionLine === null) return;
         if(instruction.animation) {
             instruction.animation(...parameters).then(
                 () => {
+                    code.removeCodeLine(line);
                     this.processCode(instruction.nextInstructionLine, parameters);
                 } 
             );
         } else {
             setTimeout(() => {
+                code.removeCodeLine(line);
                 this.processCode(instruction.nextInstructionLine, parameters);
             }, 2000);
         }
