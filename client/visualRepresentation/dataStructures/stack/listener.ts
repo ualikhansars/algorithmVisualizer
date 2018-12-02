@@ -16,8 +16,8 @@ export const stackListener = () => {
 
     let popButton: any = document.getElementById('stackPop');
     popButton.addEventListener('click', (e: any) => {
-        stackVisual.pop();
-        popButton.disabled = true;
-        setTimeout(() => popButton.disabled = false, 2000);
+        codeInstruction.processCode(codeInstructionLines.pop, []);
+        pushButton.disabled = true;
+        setTimeout(() => pushButton.disabled = false, 2000);
     });
 }

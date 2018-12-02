@@ -2,7 +2,6 @@ import {
     canvasArea,
     codeControlArea
 } from './stackSettings';
-import { codeControl } from './codeControl';
 
 export const canvas: any = document.getElementById('dataStructuresCanvas');
 export const codeCanvas: any = document.getElementById('codeCanvas');

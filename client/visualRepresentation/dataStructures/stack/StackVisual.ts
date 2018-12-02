@@ -21,11 +21,31 @@ class StackVisual {
         });
     }
 
-    movePointer(value: string) {
+    movePointerIncrement(value: string) {
         return new Promise(resolve => {
             top = top + 1;
             if(top < maxSize) {
                 movePointer(top - 1, top).then(() => resolve());
+            }
+        });
+    }
+
+    movePointerDecrement(value: string) {
+        return new Promise(resolve => {
+            top = top - 1;
+            if(top >= -1) {
+                movePointer(top + 1, top).then(() => resolve());
+            }
+        });
+    }
+
+    removeElement() {
+        return new Promise(resolve => {
+            if(top < maxSize && top + 1 >= 0) {
+                setTimeout(() => {
+                    clearElementInStack(top + 1);
+                });
+                resolve();
             }
         });
     }
