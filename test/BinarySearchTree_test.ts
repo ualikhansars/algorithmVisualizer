@@ -19,7 +19,6 @@ describe('BinarySearchTree test', () => {
         before(() => {
             binarySearchTree.insert(number1);
             number1SearchResult = binarySearchTree.search(number1);
-            
         });
         it('number1SearchResult key is equal to number1', () => {
             assert.equal(number1SearchResult.key, number1);

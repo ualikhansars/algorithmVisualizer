@@ -1,4 +1,4 @@
-import { ctx, codeCtx } from './canvas';
+import { ctx } from '../../common/canvas';
 import {
     indexLayer,
     stackLayer,

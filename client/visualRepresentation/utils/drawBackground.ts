@@ -1,4 +1,4 @@
-import {loadImage} from '../utils/loadImage';
+import {loadImage} from './loadImage';
 import {WIDTH, HEIGHT} from '../config/map';
 import {backgroundCtx} from '../config/canvas/canvasLoader';
 

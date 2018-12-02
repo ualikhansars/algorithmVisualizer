@@ -1,6 +1,6 @@
 import {drawImage} from '../../utils/draw/drawImage';
 import {pointerLayer} from './stackSettings';
-import {ctx} from './canvas';
+import {ctx} from '../../common/canvas';
 
 export const movePointer = (prevIndex: number, nextIndex: number) => {
     return new Promise(resolve => {

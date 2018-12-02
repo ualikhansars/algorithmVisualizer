@@ -1,4 +1,4 @@
-import {codeCtx} from './canvas';
+import {codeCtx} from '../../common/canvas';
 import Code from '../../utils/code/Code';
 import {codeInstruction} from './instructions';
 import StackVisual from './StackVisual';

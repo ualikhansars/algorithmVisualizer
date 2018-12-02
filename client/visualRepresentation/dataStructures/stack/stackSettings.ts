@@ -13,15 +13,9 @@ export const codeInstructionLines = {
     pop: 5
 }
 
-export const canvasArea: any = {
-    width: 500,
-    height: 600
-} 
+export const canvasArea = new Area(500, 600);
 
-export const codeControlArea: any = {
-    width: 600,
-    height: 600,
-}
+export const codeControlArea: Area = new Area(600, 600);
 
 export const codeControlCanvas: any = {
     startX: 80,

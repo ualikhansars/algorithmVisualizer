@@ -1,5 +1,5 @@
 import Code from './Code';
-import {codeCtx} from '../../dataStructures/stack/canvas';
+import {codeCtx} from '../../common/canvas';
 
 const code = new Code(codeCtx);
 
