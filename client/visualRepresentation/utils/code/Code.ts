@@ -13,7 +13,12 @@ class Code {
     private ctx: CanvasRenderingContext2D;
 
     constructor(context: CanvasRenderingContext2D) {
-        this.ctx = context;
+        if(context) {
+            this.ctx = context;
+        } 
+        else {
+            throw new Error("Cannot assign empty context");
+        } 
     }
 
     private drawLineNumber() {

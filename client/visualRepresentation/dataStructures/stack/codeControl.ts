@@ -1,11 +1,11 @@
-import {codeCtx} from '../../common/canvas';
+import { codeCtx } from '../../common/canvas';
 import Code from '../../utils/code/Code';
-import {codeInstruction} from './instructions';
+import { codeInstruction } from './instructions';
 import StackVisual from './StackVisual';
 
-let code = new Code(codeCtx);
-const stackVisual = new StackVisual();
 export const codeControl = () => {
+    let code = new Code(codeCtx);
+    const stackVisual = new StackVisual();
     code.codeLine(1, 'push(value):');
     codeInstruction.addToInstructions(1, 2, null);
     code.codeLine(2, 'top = top + 1');

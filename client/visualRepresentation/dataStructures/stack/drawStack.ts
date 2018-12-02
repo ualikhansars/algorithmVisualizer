@@ -8,6 +8,7 @@ import { drawLine } from '../../utils/draw/drawLine';
 import { drawImage } from '../../utils/draw/drawImage';
 
 export const drawStack = (size: number = 10) => {
+
     const stackHeight = stackLayer.gridHeight * size;
     const stackWidth = stackLayer.gridWidth;
 

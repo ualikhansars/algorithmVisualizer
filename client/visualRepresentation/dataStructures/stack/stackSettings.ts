@@ -1,3 +1,5 @@
+import Area from "../../common/areas/Area";
+
 const startOfLayers: any = {
     x: 80,
     y: 80
@@ -13,7 +15,7 @@ export const codeInstructionLines = {
     pop: 5
 }
 
-export const canvasArea = new Area(500, 600);
+export const canvasArea: Area = new Area(500, 600);
 
 export const codeControlArea: Area = new Area(600, 600);
 

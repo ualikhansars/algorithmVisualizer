@@ -7,3 +7,5 @@ class Area {
         this.height = height;
     }
 }
+
+export default Area;

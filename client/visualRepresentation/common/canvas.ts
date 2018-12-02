@@ -1,3 +1,5 @@
+import Area from "./areas/Area";
+
 export const canvas: any = document.getElementById('dataStructuresCanvas');
 export const codeCanvas: any = document.getElementById('codeCanvas');
 const container: any = document.getElementsByClassName('canvasContainer');

@@ -1,10 +1,18 @@
 import Code from './Code';
 import {codeCtx} from '../../common/canvas';
 
-const code = new Code(codeCtx);
-
 class CodeInstruction {
     private instructions: any = {};
+    private code: Code;
+
+    constructor() {
+        if(codeCtx) {
+            this.code = new Code(codeCtx);
+        } 
+        else {
+            throw new Error("Undefined")
+        }
+    }
 
     addToInstructions(line: number, nextInstructionLine: number | null, animation: Function | null) {
         let instruction = new InstructionDetails(line, nextInstructionLine, animation);
@@ -12,22 +20,21 @@ class CodeInstruction {
     }
 
     processCode(line: number, parameters: any[]) {
-        console.error('line', line);
         const instruction = this.instructions[line];
         if(!instruction) return;
-        code.colorCodeLine(line);
+        this.code.colorCodeLine(line);
         if(instruction.animation) {
             instruction.animation(...parameters).then(
                 () => {
                     setTimeout(() => {
-                        code.removeCodeLine(line);
+                        this.code.removeCodeLine(line);
                         this.processCode(instruction.nextInstructionLine, parameters);
                     }, 2000); 
                 } 
             );
         } else {
             setTimeout(() => {
-                code.removeCodeLine(line);
+                this.code.removeCodeLine(line);
                 this.processCode(instruction.nextInstructionLine, parameters);
             }, 2000);
         }

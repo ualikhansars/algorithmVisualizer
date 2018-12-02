@@ -1,12 +1,11 @@
-export const drawLine = (
-    ctx: any, 
-    startX: Number, 
-    startY: Number, 
-    finishX: Number, 
-    finishY: Number,
-) => {
-    ctx.beginPath();
-    ctx.moveTo(startX, startY);
-    ctx.lineTo(finishX, finishY);
-    ctx.stroke();
+export const drawLine = (ctx: CanvasRenderingContext2D, startX: number, startY: number, finishX: number, finishY: number) => {
+    if(ctx) {
+        ctx.beginPath();
+        ctx.moveTo(startX, startY);
+        ctx.lineTo(finishX, finishY);
+        ctx.stroke();
+    } 
+    else {
+        throw new Error("context is undefined");
+    }
 }

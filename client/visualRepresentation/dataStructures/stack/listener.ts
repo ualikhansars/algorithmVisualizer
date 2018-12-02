@@ -1,11 +1,9 @@
-import StackVisual from './StackVisual';
 import {codeInstructionLines} from './stackSettings';
 import {codeInstruction} from './instructions';
 
-const stackVisual = new StackVisual();
 export const stackListener = () => {
     let pushButton: any = document.getElementById("stackPush");
-    pushButton.addEventListener('click', (e: any) => {
+    pushButton.addEventListener('click', (e: Event) => {
         let element: any = document.getElementById("stackInput");
         if(element && element.value) {
             codeInstruction.processCode(codeInstructionLines.push, [element.value]);
@@ -15,7 +13,7 @@ export const stackListener = () => {
     });
 
     let popButton: any = document.getElementById('stackPop');
-    popButton.addEventListener('click', (e: any) => {
+    popButton.addEventListener('click', (e: Event) => {
         codeInstruction.processCode(codeInstructionLines.pop, []);
         pushButton.disabled = true;
         setTimeout(() => pushButton.disabled = false, 2000);
