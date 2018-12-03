@@ -38,11 +38,15 @@
 
     {{#if mode.visualRepresentation}}
     <div class="row">
-        <div class="col-md-2">
-           {{> dsSidebar}}
-        </div>
-        <div class="col-md-10">
-            visual Representation block
+        <div class="col-md-12">
+            <div class="row">
+                <div class="col-md-8">
+                     <canvas id="dataStructuresCanvas"></canvas>
+                </div>
+                <div class="col-md-4">
+                    <canvas id="codeCanvas"></canvas>
+                </div>
+            </div>
         </div>
     </div>
     {{/if}}
