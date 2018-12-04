@@ -1,7 +1,12 @@
+import BSTSettings from "./BSTSettings";
+import BSTDraw from "./draw/drawNode";
+
 class BSTVisual {
 
-    private branchWidth: number = 60;
+    private branchWidth: number = 100;
     private branchHeight: number = 60;
+    private rootX: number = BSTSettings.canvasArea.width / 2;
+    private rootY: number = 30;
 
     public root: any;
 
@@ -23,14 +28,25 @@ class BSTVisual {
         }
         node.p = insertedNodeParent;
         if (insertedNodeParent == null) {
+            let positions = new Positions(this.rootX, this.rootY);
+            node.position = positions;
             this.root = node;
         } 
         else if(node.key < insertedNodeParent.key) {
-         insertedNodeParent.left = node;
+            let x = insertedNodeParent.position.x - this.branchWidth;
+            let y = insertedNodeParent.position.y + this.branchHeight;
+            let position = new Positions(x, y);
+            node.position = position; 
+            insertedNodeParent.left = node;
         }
         else {
-         insertedNodeParent.right = node;
+            let x = insertedNodeParent.position.x + this.branchWidth;
+            let y = insertedNodeParent.position.y + this.branchHeight;
+            let position = new Positions(x, y);
+            node.position = position;
+            insertedNodeParent.right = node;
         }
+        BSTDraw.drawNode(node.position.x, node.position.y, key);
     }
 }
 
@@ -39,6 +55,7 @@ class TreeNode {
     public left: any;
     public right: any;
     public p: any;
+    public position: Positions | null = null;
 
     constructor(key: any, left:any = null, right:any = null) {
         this.key = key;
@@ -46,3 +63,15 @@ class TreeNode {
         this.right = right;
     }
 }
+
+class Positions {
+    x: number;
+    y: number;
+
+    constructor(x: number, y: number) {
+        this.x = x;
+        this.y = y;
+    }
+}
+
+export default BSTVisual;

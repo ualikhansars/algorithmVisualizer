@@ -1,14 +1,14 @@
-import BSTDraw from "./draw/drawNode";
-import BSTSettings from "./BSTSettings";
+import BSTVisual from "./BSTVisual";
 
 export const BSTListener = () => {
+    let bstVisual = new BSTVisual();
     let insertButton: any = document.getElementById("BSTInsert");
     if(insertButton) {
         insertButton.addEventListener('click', (e: Event) => {
             let element: any = document.getElementById("BSTInsertIntput");
             if(element && element.value) {
                 console.error("insert value", element.value);
-                BSTDraw.drawNode(BSTSettings.canvasArea.width / 2, 30, element.value);
+                bstVisual.insert(element.value);
             }
         });
     }
