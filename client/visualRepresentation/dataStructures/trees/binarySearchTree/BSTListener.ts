@@ -1,3 +1,6 @@
+import BSTDraw from "./draw/drawNode";
+import BSTSettings from "./BSTSettings";
+
 export const BSTListener = () => {
     let insertButton: any = document.getElementById("BSTInsert");
     if(insertButton) {
@@ -5,6 +8,7 @@ export const BSTListener = () => {
             let element: any = document.getElementById("BSTInsertIntput");
             if(element && element.value) {
                 console.error("insert value", element.value);
+                BSTDraw.drawNode(BSTSettings.canvasArea.width / 2, 30, element.value);
             }
         });
     }
