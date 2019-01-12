@@ -1,6 +1,10 @@
 import BSTSettings from "./BSTSettings";
 import BSTDraw from "./draw/drawNode";
 
+import TreeNode from './utils/TreeNode';
+import Positions from './utils/Positions';
+
+
 class BSTVisual {
     private branchWidth: number = 60;
     private branchHeight: number = 40;
@@ -79,58 +83,6 @@ class BSTVisual {
         } 
         return count;
     }
-}
-
-class TreeNode {
-    public key: any;
-    public left: TreeNode;
-    public right: TreeNode;
-    public parent: TreeNode | null = null;
-    public position: Positions | null = null;
-    public subtree: Subtree | null = null;
-
-    constructor(key: any, left:any = null, right:any = null) {
-        this.key = key;
-        this.left = left;
-        this.right = right;
-    }
-
-    setSubtree(): Subtree | null {
-        if(this.parent === null) {
-            this.subtree = Subtree.Root;
-        }
-        else if(this.parent.subtree === Subtree.Root) {
-            if(this.parent.key < this.key) {
-                this.subtree = Subtree.Left;
-            }
-            else if(this.parent.key > this.key) {
-                this.subtree = Subtree.Right;
-            }
-        }
-        else if(this.parent.subtree === Subtree.Left) {
-            this.subtree = Subtree.Left;
-        }
-        else if(this.parent.subtree === Subtree.Right) {
-            this.subtree = Subtree.Right;
-        }
-        return this.subtree;
-    }
-}
-
-class Positions {
-    x: number;
-    y: number;
-
-    constructor(x: number, y: number) {
-        this.x = x;
-        this.y = y;
-    }
-}
-
-enum Subtree {
-    Root,
-    Left,
-    Right
 }
 
 export default BSTVisual;

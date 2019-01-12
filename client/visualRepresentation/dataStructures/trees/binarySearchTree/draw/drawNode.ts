@@ -1,4 +1,5 @@
 import { ctx } from "../../../../common/canvas";
+import TreeNode from '../utils/TreeNode';
 
 class BSTDraw {
     static drawNode(x: number, y: number, value: string) {
@@ -11,6 +12,10 @@ class BSTDraw {
         ctx.closePath();
         ctx.font = '18px serif';
         ctx.fillText(value, x - offset, y + offset);
+    }
+
+    static drawTree(root: TreeNode) {
+        
     }
 }
 
