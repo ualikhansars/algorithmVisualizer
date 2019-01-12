@@ -33,20 +33,20 @@ class BSTVisual {
             }
         }
         node.parent = insertedNodeParent;
+        node.setSubtree();
         if (insertedNodeParent == null) { // node is a root
             let positions = new Positions(this.rootX, this.rootY);
             node.position = positions;
             this.root = node;
         } 
-        else if(node.key < insertedNodeParent.key) {
+        else if(node.key < insertedNodeParent.key) { // left child
             let x = insertedNodeParent.position.x - this.branchWidth;
             let y = insertedNodeParent.position.y + this.branchHeight;
             let position = new Positions(x, y);
             node.position = position;
-            node.setSubtree();
             insertedNodeParent.left = node;
         }
-        else {
+        else { // right child
             let x = insertedNodeParent.position.x + this.branchWidth;
             let y = insertedNodeParent.position.y + this.branchHeight;
             let position = new Positions(x, y);
@@ -55,7 +55,8 @@ class BSTVisual {
         }
         this.leftHeavyNodes = this.countLeftHeavyNodes();
         this.rightHeavyNodes = this.countRightHeavyNodes();
-        BSTDraw.drawNode(node.position.x, node.position.y, key);
+        //BSTDraw.drawNode(node.position.x, node.position.y, key);
+        BSTDraw.drawTree(this.root, this.rootX, this.rootY, this.leftHeavyNodes, this.rightHeavyNodes);
     }
 
     countLeftHeavyNodes(): number {
